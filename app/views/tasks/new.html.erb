@@ -1,0 +1,31 @@
+<div class="container text-center">
+
+  <h1>Create a new Task</h1>
+
+  <!-- <form action="/tasks" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <label for="task">task: </label>
+    <input type="text" name="task[title]" id="title">
+
+    <label for="details">details: </label>
+    <input type="text" name="task[details]" id="details">
+
+    <input type="submit">
+  </form> -->
+  <div class="mx-auto my-5">
+
+    <%= form_for(@task) do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class:"from-control text-left" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :details %>
+        <%= f.text_field :details, class:"from-control text-left" %>
+      </div>
+      <%= f.submit class:'btn btn-primary' %>
+    <% end %>
+  </div>
+
+  <%= link_to "back to tasks", tasks_path, class:'btn btn-danger mb-3'  %>
+</div>

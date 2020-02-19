@@ -1,0 +1,23 @@
+<div class="container text-center">
+
+  <h1>All Tasks</h1>
+
+    <% @tasks.each do |task| %>
+
+     <p><% if task.completed %>
+      <i class="fas fa-clipboard-check"></i>
+      <% else %>
+      <i class="fas fa-clipboard"></i>
+      <% end %>
+      <%= link_to task.title, task_path(task), class:'btn btn-light'%> --- <%= link_to  task_delete_path(task[:id]),
+        method: :delete,
+        data: { confirm: "Are you sure?" } do %>
+        <i class="far fa-trash-alt"></i>
+        <% end %>
+      </p>
+    <% end %>
+     <p>
+      <%= link_to "Create a new task", new_task_path, class:'btn btn-primary' %></p>
+
+</div>
+  <!-- <i class="fas fa-clipboard-check"> -->
